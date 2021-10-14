@@ -37,7 +37,6 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: stevefan1999/focalboard
-          platforms: linux/amd64,linux/arm64/v8,linux/arm/v7
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
@@ -47,5 +46,6 @@ jobs:
         with:
           context: .
           file: ./Dockerfile.build
+          platforms: linux/amd64,linux/arm64/v8,linux/arm/v7
           push: true
           tags: ${{ steps.meta.outputs.tags }}
